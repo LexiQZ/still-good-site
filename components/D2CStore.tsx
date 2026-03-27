@@ -70,7 +70,7 @@ const ArchiveImage = ({ src, alt, className }: { src: string; alt: string; class
       <img 
         src={imgSrc} 
         alt={alt} 
-        className={`w-full h-full object-cover transition-all duration-1000 ${status === 'success' ? 'opacity-100' : 'opacity-0'}`}
+        className={`w-full h-full object-cover scale-[1.02] transition-all duration-1000 ${status === 'success' ? 'opacity-100' : 'opacity-0'}`}
         onLoad={() => setStatus('success')}
         onError={() => {
           if (src.startsWith('data:image')) {
@@ -290,16 +290,6 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
                             {c}
                           </button>
                         ))}
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setSearchQuery('Only 1 Unit');
-                          setQuickPicksOpen(false);
-                        }}
-                        className="px-2 py-1 border border-red-200 hover:border-red-600 text-[9px] font-bold uppercase tracking-[0.16em] text-red-600"
-                      >
-                        Final Piece
-                      </button>
                     </div>
                   </div>
                   )}
@@ -393,7 +383,7 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
                 </div>
               ) : (
                 <>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-16">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-5">
                     {visibleProducts.map((p) => (
                       <div 
                         key={p.id} 
@@ -406,11 +396,6 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
                             alt={p.name} 
                             className="w-full h-full transition-transform duration-1000 group-hover:scale-105" 
                           />
-                          {p.units.includes('1 Unit') && (
-                            <div className="absolute top-4 left-4 bg-red-600 text-white px-2 py-1 text-[8px] font-bold uppercase tracking-widest shadow-sm">
-                              FINAL PIECE
-                            </div>
-                          )}
                         </div>
                         <div className="space-y-1 text-center">
                           <h4 className="font-bold text-sm tracking-tight group-hover:underline decoration-[0.5px] underline-offset-4">{p.name}</h4>
