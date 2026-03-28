@@ -1,5 +1,5 @@
 
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useLayoutEffect, useCallback } from 'react';
 import { 
   Search, 
   ShoppingBag, 
@@ -197,11 +197,35 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [productsLoading, setProductsLoading] = useState(true);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [navDrawerEntered, setNavDrawerEntered] = useState(false);
+  const [cartDrawerEntered, setCartDrawerEntered] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [quickPicksOpen, setQuickPicksOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
   const searchCloseTimerRef = useRef<number | null>(null);
+  const cartCloseTimerRef = useRef<number | null>(null);
+
+  const CART_DRAWER_MS = 300;
+
+  const closeCartAnimated = useCallback(() => {
+    const w = typeof window !== 'undefined' ? window : null;
+    const reduce = !!(w && w.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    const isLg = !!(w && w.matchMedia('(min-width: 1024px)').matches);
+    if (cartCloseTimerRef.current) {
+      window.clearTimeout(cartCloseTimerRef.current);
+      cartCloseTimerRef.current = null;
+    }
+    setCartDrawerEntered(false);
+    if (reduce || isLg) {
+      setCartOpen(false);
+      return;
+    }
+    cartCloseTimerRef.current = window.setTimeout(() => {
+      setCartOpen(false);
+      cartCloseTimerRef.current = null;
+    }, CART_DRAWER_MS);
+  }, []);
 
   useEffect(() => {
     fetch('/products.json')
@@ -271,13 +295,124 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
     setVisibleCount(INITIAL_VISIBLE_COUNT);
   }, [activeCategory, searchQuery, products.length]);
 
+  // Mobile nav drawer slide-in (no reset-to-false on open — avoids Strict Mode double animation)
+  useLayoutEffect(() => {
+    if (!mobileFiltersOpen) {
+      setNavDrawerEntered(false);
+      return undefined;
+    }
+    let cancelled = false;
+    const id = window.requestAnimationFrame(() => {
+      if (!cancelled) setNavDrawerEntered(true);
+    });
+    return () => {
+      cancelled = true;
+      window.cancelAnimationFrame(id);
+    };
+  }, [mobileFiltersOpen]);
+
+  // Mobile: slide in after mount (single rAF). Desktop (lg+): no motion; CSS keeps panel visible.
+  useLayoutEffect(() => {
+    if (!cartOpen) {
+      setCartDrawerEntered(false);
+      return undefined;
+    }
+    if (cartCloseTimerRef.current) {
+      window.clearTimeout(cartCloseTimerRef.current);
+      cartCloseTimerRef.current = null;
+    }
+    const isLg = typeof window !== 'undefined' && window.matchMedia('(min-width: 1024px)').matches;
+    if (isLg) {
+      setCartDrawerEntered(true);
+      return undefined;
+    }
+    let cancelled = false;
+    const id = window.requestAnimationFrame(() => {
+      if (!cancelled) setCartDrawerEntered(true);
+    });
+    return () => {
+      cancelled = true;
+      window.cancelAnimationFrame(id);
+    };
+  }, [cartOpen]);
+
+  useEffect(() => {
+    if (!cartOpen || typeof document === 'undefined') return undefined;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [cartOpen]);
+
+  useEffect(() => {
+    if (!mobileFiltersOpen || typeof document === 'undefined') return undefined;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [mobileFiltersOpen]);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1024px)');
+    const onChange = () => {
+      if (mq.matches) setMobileFiltersOpen(false);
+    };
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  const categoryNavInner = (
+    <>
+      <div className="space-y-2 lg:space-y-6">
+        <div className="hidden lg:flex items-center justify-between border-b border-slate-900 pb-3">
+          <h4 className="text-[11px] font-bold uppercase tracking-widest text-slate-900">Archive Categories</h4>
+          <Filter className="w-3 h-3" />
+        </div>
+        <div className="flex flex-col gap-1">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              type="button"
+              onClick={() => {
+                setActiveCategory(cat);
+                setMobileFiltersOpen(false);
+              }}
+              className={`text-left text-[11px] py-2.5 px-1 rounded-sm transition-all ${activeCategory === cat ? 'text-black font-bold pl-2 border-l-2 border-black bg-slate-50/80' : 'text-slate-400 hover:text-black hover:bg-slate-50'}`}
+            >
+              {cat.toUpperCase()}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="space-y-4 p-5 bg-slate-50 border border-slate-100 rounded-sm">
+        <div className="flex items-center gap-2 text-[9px] font-bold uppercase text-slate-900">
+          <MapPin className="w-3 h-3" /> Warehouse Origin
+        </div>
+        <p className="text-[10px] text-slate-500 leading-relaxed font-medium uppercase">Hong Kong Hub</p>
+        <div className="h-px bg-slate-200" />
+        <p className="text-[10px] text-slate-400 italic">Liquidating limited stock (3-4 pieces per style) with global logistics support.</p>
+      </div>
+    </>
+  );
+
   return (
     <div className="min-h-screen bg-white text-slate-900 selection:bg-black selection:text-white antialiased font-sans">
       {/* Header */}
       <header className="fixed top-0 w-full bg-white/90 backdrop-blur-md z-[100] border-b border-slate-100">
         <div className="max-w-screen-2xl mx-auto h-16 md:h-20 px-6 lg:px-12 flex items-center justify-between">
           <div className="flex-1 flex items-center">
-            <Menu className="w-5 h-5 cursor-pointer text-slate-400 hover:text-black transition-colors" />
+            <button
+              type="button"
+              className="lg:hidden p-1 -ml-1 rounded-sm text-slate-400 hover:text-black transition-colors"
+              aria-label={mobileFiltersOpen ? 'Hide categories' : 'Show categories'}
+              aria-expanded={mobileFiltersOpen}
+              onClick={() => setMobileFiltersOpen((v) => !v)}
+            >
+              <Menu className="w-5 h-5" />
+            </button>
           </div>
           <div className="flex flex-col items-center">
             <h1 className="serif text-xl md:text-2xl font-bold tracking-tight leading-none text-black">STILL GOOD</h1>
@@ -389,6 +524,35 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
         </div>
       </header>
 
+      {/* Mobile: categories as left drawer (does not push the product grid) */}
+      {mobileFiltersOpen && (
+        <div className="lg:hidden">
+          <button
+            type="button"
+            className="fixed inset-0 z-[110] bg-slate-900/45 backdrop-blur-[2px]"
+            aria-label="Close menu"
+            onClick={() => setMobileFiltersOpen(false)}
+          />
+          <aside
+            className={`fixed left-0 top-0 bottom-0 z-[120] w-[min(19rem,88vw)] max-w-full bg-white shadow-2xl border-r border-slate-100 flex flex-col overflow-hidden transition-transform duration-300 ease-out motion-reduce:transition-none ${navDrawerEntered ? 'translate-x-0' : '-translate-x-full'}`}
+            style={{ paddingTop: 'max(0.75rem, env(safe-area-inset-top))' }}
+          >
+            <div className="shrink-0 flex items-center justify-between gap-3 px-5 py-3 border-b border-slate-100">
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-900">Categories</span>
+              <button
+                type="button"
+                className="p-2 rounded-full hover:bg-slate-100 text-slate-500 hover:text-black transition-colors"
+                aria-label="Close categories"
+                onClick={() => setMobileFiltersOpen(false)}
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+            <div className="flex-1 overflow-y-auto overscroll-contain px-5 py-5 space-y-8">{categoryNavInner}</div>
+          </aside>
+        </div>
+      )}
+
       <main className="pt-20">
         {/* Hero Section */}
         <section className="bg-gradient-to-b from-stone-50 via-white to-slate-50/80 pt-8 pb-12 md:pt-12 md:pb-24 px-6 md:px-12 border-b border-slate-100">
@@ -407,49 +571,9 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
 
         {/* Filters & Grid */}
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12 py-8 md:py-20">
-          {/* Mobile filter toggle */}
-          <div className="flex items-center justify-between mb-6 lg:hidden">
-            <button
-              type="button"
-              onClick={() => setMobileFiltersOpen((v) => !v)}
-              className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-slate-600"
-            >
-              <Filter className="w-3 h-3" />
-              <span>Categories</span>
-            </button>
-            <span className="text-[10px] text-slate-400">
-              {activeCategory === 'All Archive' ? 'All' : activeCategory}
-            </span>
-          </div>
-
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
-            <aside className={`w-full lg:w-64 space-y-6 lg:space-y-12 shrink-0 ${mobileFiltersOpen ? 'block' : 'hidden lg:block'}`}>
-              <div className="space-y-2 lg:space-y-6">
-                <div className="hidden lg:flex items-center justify-between border-b border-slate-900 pb-3">
-                  <h4 className="text-[11px] font-bold uppercase tracking-widest text-slate-900">Archive Categories</h4>
-                  <Filter className="w-3 h-3" />
-                </div>
-                <div className="flex flex-col gap-2">
-                  {categories.map((cat) => (
-                    <button 
-                      key={cat}
-                      onClick={() => setActiveCategory(cat)}
-                      className={`text-left text-[11px] py-1 transition-all ${activeCategory === cat ? 'text-black font-bold pl-2 border-l-2 border-black' : 'text-slate-400 hover:text-black hover:pl-2'}`}
-                    >
-                      {cat.toUpperCase()}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              
-              <div className="space-y-4 p-5 bg-slate-50 border border-slate-100 rounded-sm">
-                 <div className="flex items-center gap-2 text-[9px] font-bold uppercase text-slate-900">
-                   <MapPin className="w-3 h-3" /> Warehouse Origin
-                 </div>
-                 <p className="text-[10px] text-slate-500 leading-relaxed font-medium uppercase">Hong Kong Hub</p>
-                 <div className="h-px bg-slate-200" />
-                 <p className="text-[10px] text-slate-400 italic">Liquidating limited stock (3-4 pieces per style) with global logistics support.</p>
-              </div>
+            <aside className="hidden lg:block w-full lg:w-64 space-y-6 lg:space-y-12 shrink-0">
+              {categoryNavInner}
             </aside>
 
             <div className="flex-1">
@@ -699,19 +823,23 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
 
       {/* Cart Drawer */}
       {cartOpen && (
-        <div className="fixed inset-0 z-[250] flex justify-end">
-          <div
-            className="flex-1 bg-slate-900/40"
-            onClick={() => setCartOpen(false)}
+        <div className="fixed inset-0 z-[250] flex justify-end overflow-hidden">
+          <button
+            type="button"
+            aria-label="Close cart"
+            className={`flex-1 bg-slate-900/40 text-left border-0 p-0 lg:opacity-100 lg:cursor-pointer lg:transition-none max-lg:transition-opacity max-lg:duration-300 max-lg:ease-out motion-reduce:max-lg:transition-none ${cartDrawerEntered ? 'max-lg:opacity-100 max-lg:cursor-pointer' : 'max-lg:opacity-0 max-lg:pointer-events-none'}`}
+            onClick={closeCartAnimated}
           />
-          <div className="w-full max-w-md bg-white h-full shadow-2xl border-l border-slate-100 flex flex-col">
+          <div
+            className={`w-full max-w-md bg-white h-full shadow-2xl border-l border-slate-100 flex flex-col shrink-0 lg:translate-x-0 lg:transition-none max-lg:transition-transform max-lg:duration-300 max-lg:ease-out motion-reduce:max-lg:transition-none ${cartDrawerEntered ? 'max-lg:translate-x-0' : 'max-lg:translate-x-full'}`}
+          >
             <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100">
               <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
                 Cart ({cartCount})
               </h3>
               <button
                 type="button"
-                onClick={() => setCartOpen(false)}
+                onClick={closeCartAnimated}
                 className="p-1.5 rounded-full hover:bg-slate-50"
               >
                 <X className="w-4 h-4 text-slate-500" />
