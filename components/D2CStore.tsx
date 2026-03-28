@@ -565,7 +565,7 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
               <h3 className="text-3xl md:text-6xl font-black uppercase tracking-[0.25em] text-slate-900 mt-8">
                 STILL GOOD
               </h3>
-              <p className="mt-2.5 md:mt-3 max-w-sm mx-auto text-[9px] md:text-[10px] font-semibold uppercase tracking-[0.26em] md:tracking-[0.42em] text-slate-600 leading-relaxed">
+              <p className="mt-2.5 md:mt-3 max-w-sm mx-auto text-[9px] md:text-[12px] lg:text-[13px] font-semibold md:font-bold uppercase tracking-[0.26em] md:tracking-[0.28em] lg:tracking-[0.24em] text-slate-600 leading-relaxed">
                 Touch for the very first time
               </p>
             </div>
