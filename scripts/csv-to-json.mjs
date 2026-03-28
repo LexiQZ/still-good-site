@@ -192,9 +192,13 @@ function buildProduct(row) {
     ? description.replace(/\s+/g, ' ').trim()
     : `${style} ${color}`.trim();
 
+  const baseId = toId(row.STYLE, row.COLOR);
+  // csvId keeps rows unique when STYLE+COLOR repeats (e.g. two different pieces, same code).
+  const id = csvId ? `${csvId}-${baseId}` : baseId;
+
   return {
     csvId,
-    id: toId(row.STYLE, row.COLOR),
+    id,
     name,
     price,
     units: getUnits(row),

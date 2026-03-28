@@ -52,6 +52,86 @@ const getProcessedImg = (url: string) => {
   return url;
 };
 
+/** Sidebar order: audience + garment type (mapped from English tags in CSV `categories`). */
+const SHOP_NAV_ORDER = ['All Archive', 'Ladies', 'Unisex', 'Tops', 'Bottoms', 'Accessories'] as const;
+
+const TOP_TYPE_TAGS = new Set([
+  'jacket',
+  'outerwear',
+  'knitwear',
+  'tee',
+  'top',
+  'vest',
+  'sweatshirt',
+  'hoodie',
+  'shirt',
+  'blouse',
+  'cardigan',
+  'pullover',
+  'fleece',
+  'coat',
+]);
+
+const BOTTOM_TYPE_TAGS = new Set([
+  'pants',
+  'bottoms',
+  'shorts',
+  'skirt',
+  'jeans',
+  'trousers',
+  'leggings',
+]);
+
+const ACCESSORY_TYPE_TAGS = new Set([
+  'accessories',
+  'accessory',
+  'scarf',
+  'beanie',
+  'headwear',
+  'hat',
+  'cap',
+  'bag',
+  'belt',
+  'gloves',
+  'socks',
+  'jewelry',
+  'wallet',
+]);
+
+function productTagSet(p: Product): Set<string> {
+  const raw = p.categories?.length ? p.categories : [p.category];
+  return new Set(
+    raw
+      .map((c) => c.replace(/\s+/g, ' ').trim().toLowerCase())
+      .filter(Boolean)
+  );
+}
+
+function productMatchesShopCategory(p: Product, navKey: string): boolean {
+  if (navKey === 'All Archive') return true;
+  const tags = productTagSet(p);
+  const tagList = [...tags];
+  const hasBottom = tagList.some((t) => BOTTOM_TYPE_TAGS.has(t));
+  const hasAccessory = tagList.some((t) => ACCESSORY_TYPE_TAGS.has(t));
+  const hasTopShape = tagList.some((t) => TOP_TYPE_TAGS.has(t));
+
+  switch (navKey) {
+    case 'Ladies':
+      return tags.has('ladies');
+    case 'Unisex':
+      return tags.has('unisex');
+    case 'Bottoms':
+      return hasBottom;
+    case 'Accessories':
+      return hasAccessory && !hasBottom;
+    case 'Tops':
+      // Knitwear on pants made every bottom also match "Tops"; exclude bottoms and pure accessories.
+      return hasTopShape && !hasBottom && !hasAccessory;
+    default:
+      return false;
+  }
+}
+
 const ArchiveImage = ({ src, alt, className }: { src: string; alt: string; className: string }) => {
   const [imgSrc, setImgSrc] = useState<string>('');
   const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
@@ -147,9 +227,7 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
   }, [selectedProduct]);
 
   const filteredProducts = products.filter((p) => {
-    const cats = p.categories && p.categories.length > 0 ? p.categories : [p.category];
-    const matchesCategory =
-      activeCategory === 'All Archive' ? true : cats.includes(activeCategory);
+    const matchesCategory = productMatchesShopCategory(p, activeCategory);
     const q = searchQuery.trim().toLowerCase();
     if (!q) return matchesCategory;
     const haystack = [
@@ -167,12 +245,9 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
   const visibleProducts = filteredProducts.slice(0, visibleCount);
   const hasMoreProducts = filteredProducts.length > visibleCount;
 
-  const categorySet = new Set<string>();
-  products.forEach((p) => {
-    const cats = p.categories && p.categories.length > 0 ? p.categories : [p.category];
-    cats.filter(Boolean).forEach((c) => categorySet.add(c));
-  });
-  const categories = ['All Archive', ...Array.from(categorySet)];
+  const categories = SHOP_NAV_ORDER.filter(
+    (key) => key === 'All Archive' || products.some((p) => productMatchesShopCategory(p, key))
+  );
 
   const parsePrice = (price: string): number => {
     const numeric = parseFloat(price.replace(/[^0-9.]/g, ''));
@@ -400,6 +475,7 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
                         </div>
                         <div className="space-y-1 text-center">
                           <h4 className="font-bold text-sm tracking-tight group-hover:underline decoration-[0.5px] underline-offset-4">{p.name}</h4>
+                          <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400">{p.color}</p>
                           <p className="serif italic text-base text-slate-600">{p.price}</p>
                         </div>
                       </div>

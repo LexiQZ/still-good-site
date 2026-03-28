@@ -1,7 +1,7 @@
 [
   {
     "csvId": "8",
-    "id": "MS141062-CLOUD",
+    "id": "8-MS141062-CLOUD",
     "name": "LADIES 100 COTTON SINGED JERSEY DIP DYED JACKET",
     "price": "$188",
     "units": "Only 1 Unit Left (Size S)",
@@ -23,7 +23,7 @@
   },
   {
     "csvId": "9",
-    "id": "MS141062-POWDEREDROSESORBET",
+    "id": "9-MS141062-POWDEREDROSESORBET",
     "name": "LADIES 100 COTTON SINGED JERSEY DIP DYED JACKET",
     "price": "$189",
     "units": "Only 1 Unit Left (Size S)",
@@ -45,7 +45,7 @@
   },
   {
     "csvId": "10",
-    "id": "MS141062-PINE",
+    "id": "10-MS141062-PINE",
     "name": "LADIES 100 COTTON SINGED JERSEY DIP DYED JACKET",
     "price": "$190",
     "units": "3 Units Remaining",
@@ -67,7 +67,7 @@
   },
   {
     "csvId": "11",
-    "id": "AS1510002-GREYMELANGE+YELLOWDIP",
+    "id": "11-AS1510002-GREYMELANGE+YELLOWDIP",
     "name": "LADIES 100 COTTON SINGED JERSEY DIP DYED JACKET",
     "price": "$191",
     "units": "Only 1 Unit Left (Size S)",
@@ -89,7 +89,7 @@
   },
   {
     "csvId": "12",
-    "id": "AS1510001-GREYMELANGE+DKBLUEDIP",
+    "id": "12-AS1510001-GREYMELANGE+DKBLUEDIP",
     "name": "LADIES 100 COTTON SINGED JERSEY DIP DYED JACKET",
     "price": "$192",
     "units": "Only 1 Unit Left (Size S)",
@@ -111,7 +111,7 @@
   },
   {
     "csvId": "14",
-    "id": "MS141064-LIGHTGREY",
+    "id": "14-MS141064-LIGHTGREY",
     "name": "LADIES 100 COTTON SINGED JERSEY DIP DYED JACKET",
     "price": "$194",
     "units": "2 Units Remaining",
@@ -133,13 +133,16 @@
   },
   {
     "csvId": "16",
-    "id": "MS14-1071-PINE",
+    "id": "16-MS14-1071-PINE",
     "name": "LADIES 100 COTTON SINGED JERSEY DIP DYED V EST",
     "price": "$196",
     "units": "Only 1 Unit Left (Size S)",
-    "category": "Archive",
+    "category": "Ladies",
     "categories": [
-      "Archive"
+      "Ladies",
+      "Vest",
+      "Outerwear",
+      "Knitwear"
     ],
     "style": "MS14-1071",
     "color": "PINE",
@@ -152,13 +155,16 @@
   },
   {
     "csvId": "17",
-    "id": "MS14-1071-LIGHTGREY",
+    "id": "17-MS14-1071-LIGHTGREY",
     "name": "LADIES 100 COTTON SINGED JERSEY DIP DYED V EST",
     "price": "$197",
     "units": "2 Units Remaining",
-    "category": "Archive",
+    "category": "Ladies",
     "categories": [
-      "Archive"
+      "Ladies",
+      "Vest",
+      "Outerwear",
+      "Knitwear"
     ],
     "style": "MS14-1071",
     "color": "LIGHT GREY",
@@ -171,13 +177,16 @@
   },
   {
     "csvId": "18",
-    "id": "MS14-1071-POWDEREDROSE",
+    "id": "18-MS14-1071-POWDEREDROSE",
     "name": "LADIES 100 COTTON SINGED JERSEY DIP DYED V EST",
     "price": "$198",
     "units": "Only 1 Unit Left (Size S)",
-    "category": "Archive",
+    "category": "Ladies",
     "categories": [
-      "Archive"
+      "Ladies",
+      "Vest",
+      "Outerwear",
+      "Knitwear"
     ],
     "style": "MS14-1071",
     "color": "POWDE RED ROSE",
@@ -190,13 +199,16 @@
   },
   {
     "csvId": "19",
-    "id": "MS14-1063-LIGHTGREY",
+    "id": "19-MS14-1063-LIGHTGREY",
     "name": "LADIES 100 COTTON SINGED JERSEY DIP DYED V EST",
     "price": "$199",
     "units": "Only 1 Unit Left (Size S)",
-    "category": "Archive",
+    "category": "Ladies",
     "categories": [
-      "Archive"
+      "Ladies",
+      "Vest",
+      "Outerwear",
+      "Knitwear"
     ],
     "style": "MS14-1063",
     "color": "LIGHT GREY",
@@ -209,13 +221,16 @@
   },
   {
     "csvId": "19_5",
-    "id": "MS14-1063-POWEREDROSESORBET",
+    "id": "19_5-MS14-1063-POWEREDROSESORBET",
     "name": "LADIES 100 COTTON SINGED JERSEY DIP DYED V EST",
     "price": "$200",
     "units": "Only 1 Unit Left (Size S)",
-    "category": "Archive",
+    "category": "Ladies",
     "categories": [
-      "Archive"
+      "Ladies",
+      "Vest",
+      "Outerwear",
+      "Knitwear"
     ],
     "style": "MS14-1063",
     "color": "POWE RED ROSE SORBET",
@@ -228,13 +243,16 @@
   },
   {
     "csvId": "20",
-    "id": "MS14-1063-PINE",
+    "id": "20-MS14-1063-PINE",
     "name": "LADIES 100 COTTON SINGED JERSEY DIP DYED V EST",
     "price": "$165",
     "units": "2 Units Remaining",
-    "category": "Archive",
+    "category": "Ladies",
     "categories": [
-      "Archive"
+      "Ladies",
+      "Vest",
+      "Outerwear",
+      "Knitwear"
     ],
     "style": "MS14-1063",
     "color": "PINE",
@@ -247,13 +265,16 @@
   },
   {
     "csvId": "22",
-    "id": "MS14-1069-POWDEREDROSESORBET",
+    "id": "22-MS14-1069-POWDEREDROSESORBET",
     "name": "LADIES 100 COTTON SINGED JERSEY D PANTS",
     "price": "$230",
     "units": "2 Units Remaining",
-    "category": "Archive",
+    "category": "Ladies",
     "categories": [
-      "Archive"
+      "Ladies",
+      "Pants",
+      "Bottoms",
+      "Knitwear"
     ],
     "style": "MS14-1069",
     "color": "POWDE RED ROSE SORBET",
@@ -266,13 +287,16 @@
   },
   {
     "csvId": "23",
-    "id": "MS14-1069-PINE",
+    "id": "23-MS14-1069-PINE",
     "name": "LADIES 100 COTTON SINGED JERSEY DIP DYED PANTS",
     "price": "$265",
     "units": "2 Units Remaining",
-    "category": "Archive",
+    "category": "Ladies",
     "categories": [
-      "Archive"
+      "Ladies",
+      "Pants",
+      "Bottoms",
+      "Knitwear"
     ],
     "style": "MS14-1069",
     "color": "PINE",
@@ -285,13 +309,16 @@
   },
   {
     "csvId": "24",
-    "id": "MS14-1068-LIGHTGREY",
+    "id": "24-MS14-1068-LIGHTGREY",
     "name": "LADIES 100 COTTON SINGED JERSEY DIP DYED PANTS",
     "price": "$150",
     "units": "Only 1 Unit Left (Size S)",
-    "category": "Archive",
+    "category": "Ladies",
     "categories": [
-      "Archive"
+      "Ladies",
+      "Pants",
+      "Bottoms",
+      "Knitwear"
     ],
     "style": "MS14-1068",
     "color": "LIGHT GREY",
@@ -304,13 +331,16 @@
   },
   {
     "csvId": "25",
-    "id": "MS14-1068-PINE",
+    "id": "25-MS14-1068-PINE",
     "name": "LADIES 100 COTTON SINGED JERSEY DIP DYED PANTS",
     "price": "$250",
     "units": "Only 1 Unit Left (Size S)",
-    "category": "Archive",
+    "category": "Ladies",
     "categories": [
-      "Archive"
+      "Ladies",
+      "Pants",
+      "Bottoms",
+      "Knitwear"
     ],
     "style": "MS14-1068",
     "color": "PINE",
@@ -323,13 +353,16 @@
   },
   {
     "csvId": "26",
-    "id": "AS151101-BLACK",
+    "id": "26-AS151101-BLACK",
     "name": "LADIES 100 COTTON SINGED JERSEY DIP DYED JACKET",
     "price": "$245",
     "units": "Only 1 Unit Left (Size S)",
-    "category": "Archive",
+    "category": "Ladies",
     "categories": [
-      "Archive"
+      "Ladies",
+      "Jacket",
+      "Outerwear",
+      "Knitwear"
     ],
     "style": "AS151101",
     "color": "BLACK",
@@ -342,13 +375,15 @@
   },
   {
     "csvId": "27",
-    "id": "AS151101-BLACK",
+    "id": "27-AS151101-BLACK",
     "name": "LADIES TANK TOP",
     "price": "$245",
     "units": "Only 1 Unit Left (Size S)",
-    "category": "Archive",
+    "category": "Ladies",
     "categories": [
-      "Archive"
+      "Ladies",
+      "Top",
+      "Knitwear"
     ],
     "style": "AS151101",
     "color": "BLACK",
@@ -361,13 +396,16 @@
   },
   {
     "csvId": "28",
-    "id": "MS141070-LIGHTGREY",
+    "id": "28-MS141070-LIGHTGREY",
     "name": "100 COTTON SINGED JERSEY DIP DYED BEANIE",
     "price": "$265",
     "units": "Only 1 Unit Left (Size S)",
-    "category": "Archive",
+    "category": "Unisex",
     "categories": [
-      "Archive"
+      "Unisex",
+      "Beanie",
+      "Headwear",
+      "Knitwear"
     ],
     "style": "MS141070",
     "color": "LIGHT GREY",
@@ -380,13 +418,16 @@
   },
   {
     "csvId": "29",
-    "id": "AS151003-GREYMELANGE+DKBLUEDIP",
+    "id": "29-AS151003-GREYMELANGE+DKBLUEDIP",
     "name": "100 COTTON SINGED JERSEY DIP DYED SCARF",
     "price": "$155",
     "units": "2 Units Remaining",
-    "category": "Archive",
+    "category": "Unisex",
     "categories": [
-      "Archive"
+      "Unisex",
+      "Scarf",
+      "Accessories",
+      "Knitwear"
     ],
     "style": "AS151003",
     "color": "GREY MELANGE + DK BLUE DIP",
@@ -399,13 +440,16 @@
   },
   {
     "csvId": "30",
-    "id": "MS14-1066-SORBET",
+    "id": "30-MS14-1066-SORBET",
     "name": "100 COTTON SINGED JERSEY DIP DYED SCARF",
     "price": "$145",
     "units": "Only 1 Unit Left (Size S)",
-    "category": "Archive",
+    "category": "Unisex",
     "categories": [
-      "Archive"
+      "Unisex",
+      "Scarf",
+      "Accessories",
+      "Knitwear"
     ],
     "style": "MS14-1066",
     "color": "SORBET",
@@ -418,13 +462,16 @@
   },
   {
     "csvId": "31",
-    "id": "MS14-1066-LIGHTGREY",
+    "id": "31-MS14-1066-LIGHTGREY",
     "name": "100 COTTON SINGED JERSEY DIP DYED SCARF",
     "price": "$275",
     "units": "Only 1 Unit Left (Size S)",
-    "category": "Archive",
+    "category": "Unisex",
     "categories": [
-      "Archive"
+      "Unisex",
+      "Scarf",
+      "Accessories",
+      "Knitwear"
     ],
     "style": "MS14-1066",
     "color": "LIGHT GREY",
@@ -437,13 +484,16 @@
   },
   {
     "csvId": "32",
-    "id": "MS14-1074-POWDEREROSE",
+    "id": "32-MS14-1074-POWDEREROSE",
     "name": "100 COTTON SINGED JERSEY DIP DYED SCARF",
     "price": "$135",
     "units": "Only 1 Unit Left (Size S)",
-    "category": "Archive",
+    "category": "Unisex",
     "categories": [
-      "Archive"
+      "Unisex",
+      "Scarf",
+      "Accessories",
+      "Knitwear"
     ],
     "style": "MS14-1074",
     "color": "POWDERE ROSE",
@@ -456,13 +506,16 @@
   },
   {
     "csvId": "33",
-    "id": "MS14-1061-SORBET",
+    "id": "33-MS14-1061-SORBET",
     "name": "LADIES 100 COTTON SINGED JERSEY DIP DYED TEE",
     "price": "$220",
     "units": "2 Units Remaining",
-    "category": "Archive",
+    "category": "Ladies",
     "categories": [
-      "Archive"
+      "Ladies",
+      "Top",
+      "Knitwear",
+      "Tee"
     ],
     "style": "MS14-1061",
     "color": "SORBET",
@@ -475,13 +528,16 @@
   },
   {
     "csvId": "34",
-    "id": "MS14-1061-CLOUD",
+    "id": "34-MS14-1061-CLOUD",
     "name": "LADIES CREW NECK ( METALIC )100 COTTON SINGED JERSEY DIP DYED TEE",
     "price": "$205",
     "units": "2 Units Remaining",
-    "category": "Archive",
+    "category": "Ladies",
     "categories": [
-      "Archive"
+      "Ladies",
+      "Top",
+      "Knitwear",
+      "Tee"
     ],
     "style": "MS14-1061",
     "color": "CLOUD",
@@ -494,13 +550,16 @@
   },
   {
     "csvId": "35",
-    "id": "MS14-1061-PINE",
+    "id": "35-MS14-1061-PINE",
     "name": "LADIES CREW NECK ( METALIC )100 COTTON SINGED JERSEY DIP DYED TEE",
     "price": "$130",
     "units": "Only 1 Unit Left (Size S)",
-    "category": "Archive",
+    "category": "Ladies",
     "categories": [
-      "Archive"
+      "Ladies",
+      "Top",
+      "Knitwear",
+      "Tee"
     ],
     "style": "MS14-1061",
     "color": "PINE",
@@ -513,13 +572,16 @@
   },
   {
     "csvId": "36",
-    "id": "MS14-1073-POWDEREDROSE",
+    "id": "36-MS14-1073-POWDEREDROSE",
     "name": "LADIES \" V \" NECK ( METALIC )100 COTTON SINGED JERSEY DIP DYED TEE",
     "price": "$275",
     "units": "3 Units Remaining",
-    "category": "Archive",
+    "category": "Ladies",
     "categories": [
-      "Archive"
+      "Ladies",
+      "Top",
+      "Knitwear",
+      "Tee"
     ],
     "style": "MS14-1073",
     "color": "POWDE RED ROSE",
@@ -532,13 +594,16 @@
   },
   {
     "csvId": "37",
-    "id": "MS14-1073-LIGHTGREYCLOUD",
+    "id": "37-MS14-1073-LIGHTGREYCLOUD",
     "name": "LADIES \" V \" NECK ( METALIC )100 COTTON SINGED JERSEY DIP DYED TEE",
     "price": "$135",
     "units": "Only 1 Unit Left (Size S)",
-    "category": "Archive",
+    "category": "Ladies",
     "categories": [
-      "Archive"
+      "Ladies",
+      "Top",
+      "Knitwear",
+      "Tee"
     ],
     "style": "MS14-1073",
     "color": "LIGHT GREY CLOUD",
@@ -551,13 +616,16 @@
   },
   {
     "csvId": "38",
-    "id": "MS14-1073-PINE",
+    "id": "38-MS14-1073-PINE",
     "name": "LADIES \" V \" NECK ( METALIC )100 COTTON SINGED JERSEY DIP DYED TEE",
     "price": "$180",
     "units": "Only 1 Unit Left (Size S)",
-    "category": "Archive",
+    "category": "Ladies",
     "categories": [
-      "Archive"
+      "Ladies",
+      "Top",
+      "Knitwear",
+      "Tee"
     ],
     "style": "MS14-1073",
     "color": "PINE",
@@ -570,13 +638,16 @@
   },
   {
     "csvId": "39",
-    "id": "MS14-1060-LTGREYCLOUD",
+    "id": "39-MS14-1060-LTGREYCLOUD",
     "name": "LADIES TANK ( METALIC )100 COTTON SINGED JERSEY DIP DYED TEE",
     "price": "$195",
     "units": "Only 1 Unit Left (Size S)",
-    "category": "Archive",
+    "category": "Ladies",
     "categories": [
-      "Archive"
+      "Ladies",
+      "Top",
+      "Knitwear",
+      "Tee"
     ],
     "style": "MS14-1060",
     "color": "LT GREY CLOUD",
@@ -589,13 +660,16 @@
   },
   {
     "csvId": "40",
-    "id": "MS14-1060-POWDEREDROSE",
+    "id": "40-MS14-1060-POWDEREDROSE",
     "name": "LADIES TANK ( METALIC )100 COTTON SINGED JERSEY DIP DYED TEE",
     "price": "$210",
     "units": "2 Units Remaining",
-    "category": "Archive",
+    "category": "Ladies",
     "categories": [
-      "Archive"
+      "Ladies",
+      "Top",
+      "Knitwear",
+      "Tee"
     ],
     "style": "MS14-1060",
     "color": "POWDE RED ROSE",
@@ -608,13 +682,16 @@
   },
   {
     "csvId": "41",
-    "id": "MS14-1060-PINE",
+    "id": "41-MS14-1060-PINE",
     "name": "LADIES TANK ( METALIC )100 COTTON SINGED JERSEY DIP DYED TEE",
     "price": "$275",
     "units": "Only 1 Unit Left (Size S)",
-    "category": "Archive",
+    "category": "Ladies",
     "categories": [
-      "Archive"
+      "Ladies",
+      "Top",
+      "Knitwear",
+      "Tee"
     ],
     "style": "MS14-1060",
     "color": "PINE",
