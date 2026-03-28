@@ -607,8 +607,17 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
             <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-300">Archive Distribution Center</p>
           </div>
           <p className="text-[9px] font-bold text-slate-300 uppercase tracking-widest text-center max-w-sm leading-relaxed">
-            Direct monetization of archival surplus. Built for liquidity, curated for the modern collector.
+            Quality-inspected surplus from trusted production. Carefully chosen for fabric and finish — made to wear.
           </p>
+
+          <div className="w-full max-w-lg pt-10 mt-2 border-t border-slate-100 flex flex-col items-center gap-3 text-center">
+            <p className="text-[10px] font-medium text-slate-400 tracking-wide">
+              © {new Date().getFullYear()} STILL GOOD. All rights reserved.
+            </p>
+            <p className="text-[9px] text-slate-300 tracking-wide">
+              still-good.net · Text, images, and design are the property of STILL GOOD unless otherwise noted.
+            </p>
+          </div>
         </div>
       </footer>
 
