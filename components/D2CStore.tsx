@@ -555,22 +555,29 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
 
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-stone-50 via-white to-slate-50/80 pt-8 pb-12 md:pt-12 md:pb-24 px-6 md:px-12 border-b border-slate-100">
+        <section className="bg-gradient-to-b from-stone-50 via-white to-slate-50/80 pt-8 pb-6 md:pt-12 md:pb-12 px-6 md:px-12 border-b border-slate-100">
           <div className="max-w-screen-2xl mx-auto flex flex-col items-center text-center">
-            <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-slate-300 mb-8">Quality Edit · Limited Release</span>
-            
-            <div className="space-y-4 mb-10">
-              <h3 className="text-3xl md:text-6xl font-black uppercase tracking-[0.25em] text-slate-900 mt-8">STILL GOOD</h3>
+            <span className="text-[9px] md:text-[10px] font-semibold uppercase tracking-[0.42em] text-slate-400 mb-8">
+              The Edit · Limited Release
+            </span>
+
+            <div className="flex flex-col items-center text-center mb-8 md:mb-12">
+              <h3 className="text-3xl md:text-6xl font-black uppercase tracking-[0.25em] text-slate-900 mt-8">
+                STILL GOOD
+              </h3>
+              <p className="mt-2.5 md:mt-3 max-w-sm mx-auto text-[9px] md:text-[10px] font-semibold uppercase tracking-[0.26em] md:tracking-[0.42em] text-slate-600 leading-relaxed">
+                Touch for the very first time
+              </p>
             </div>
 
-            <p className="text-slate-400 max-w-lg text-sm md:text-base leading-relaxed mt-3">
-              Premium destination for authentic factory overruns and limited inventory from our Hong Kong hub.
+            <p className="mt-3 md:mt-4 text-[8px] md:text-[9px] font-medium uppercase tracking-[0.26em] text-slate-300 leading-[1.9] max-w-md mx-auto lg:max-w-none lg:whitespace-nowrap">
+              Meticulously curated · Scarce editions · Made to keep.
             </p>
           </div>
         </section>
 
         {/* Filters & Grid */}
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-12 py-8 md:py-20">
+        <div className="max-w-screen-2xl mx-auto px-6 md:px-12 pt-5 pb-8 md:pt-10 md:pb-20">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
             <aside className="hidden lg:block w-full lg:w-64 space-y-6 lg:space-y-12 shrink-0">
               {categoryNavInner}
@@ -585,26 +592,26 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
                 <>
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-5">
                     {visibleProducts.map((p) => (
-                      <div 
-                        key={p.id} 
+                  <div 
+                    key={p.id} 
                         className="group cursor-pointer space-y-4"
-                        onClick={() => setSelectedProduct(p)}
-                      >
+                    onClick={() => setSelectedProduct(p)}
+                  >
                         <div className="aspect-[3/4] max-w-[220px] md:max-w-[240px] mx-auto overflow-hidden relative border border-slate-100 bg-white px-3 py-2 md:px-4 md:py-3">
-                          <ArchiveImage 
-                            src={p.img} 
-                            alt={p.name} 
-                            className="w-full h-full transition-transform duration-1000 group-hover:scale-105" 
-                          />
-                        </div>
-                        <div className="space-y-1 text-center">
-                          <h4 className="font-bold text-sm tracking-tight group-hover:underline decoration-[0.5px] underline-offset-4">{p.name}</h4>
+                      <ArchiveImage 
+                        src={p.img} 
+                        alt={p.name} 
+                        className="w-full h-full transition-transform duration-1000 group-hover:scale-105" 
+                      />
+                    </div>
+                    <div className="space-y-1 text-center">
+                      <h4 className="font-bold text-sm tracking-tight group-hover:underline decoration-[0.5px] underline-offset-4">{p.name}</h4>
                           <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400">{p.color}</p>
-                          <p className="serif italic text-base text-slate-600">{p.price}</p>
-                        </div>
-                      </div>
-                    ))}
+                      <p className="serif italic text-base text-slate-600">{p.price}</p>
+                    </div>
                   </div>
+                ))}
+              </div>
                   {hasMoreProducts && (
                     <div className="flex justify-center mt-14">
                       <button
@@ -651,7 +658,7 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
               <div className="space-y-2 mt-0 md:mt-8">
                 <div className="flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest">
                   <div className="flex items-center gap-2 text-emerald-600">
-                    <ClipboardCheck className="w-3 h-3" /> 100% Quality Inspected
+                  <ClipboardCheck className="w-3 h-3" /> 100% Quality Inspected
                   </div>
                   <span className="text-[9px] text-slate-300 tracking-[0.14em]">
                     ID: {selectedProduct.csvId || selectedProduct.id}
@@ -706,19 +713,19 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
                      ) : (
                        selectedProduct.availableSizes.map((size) => {
                          const isSelected = selectedSize === size;
-                         return (
-                           <button
-                             key={size}
+                       return (
+                         <button 
+                            key={size} 
                              onClick={() => setSelectedSize(size)}
                              className={`flex-1 min-w-[3rem] py-3 border text-xs font-bold transition-all ${
                                isSelected
                                  ? 'border-black bg-black text-white'
                                  : 'border-slate-200 hover:border-black text-black'
                              }`}
-                           >
-                             {size}
-                           </button>
-                         );
+                         >
+                           {size}
+                         </button>
+                       );
                        })
                      )}
                    </div>
@@ -765,7 +772,7 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
                     }}
                   >
                     {cartJustUpdated ? 'Added to Bag' : 'Add to Bag'}
-                  </button>
+                </button>
 
                   {/* Cart indicator inside PDP (all viewports) */}
                   <button
