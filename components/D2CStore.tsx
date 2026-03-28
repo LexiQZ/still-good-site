@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 
 interface Product {
+  csvId?: string;
   id: string;
   name: string;
   price: string;
@@ -315,7 +316,7 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
 
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-stone-50 via-white to-slate-50/80 pt-8 pb-16 md:pt-12 md:pb-32 px-6 md:px-12 border-b border-slate-100">
+        <section className="bg-gradient-to-b from-stone-50 via-white to-slate-50/80 pt-8 pb-12 md:pt-12 md:pb-24 px-6 md:px-12 border-b border-slate-100">
           <div className="max-w-screen-2xl mx-auto flex flex-col items-center text-center">
             <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-slate-300 mb-8">Quality Edit · Limited Release</span>
             
@@ -323,7 +324,7 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
               <h3 className="text-3xl md:text-6xl font-black uppercase tracking-[0.25em] text-slate-900 mt-8">STILL GOOD</h3>
             </div>
 
-            <p className="text-slate-500 max-w-lg text-sm md:text-base leading-relaxed">
+            <p className="text-slate-400 max-w-lg text-sm md:text-base leading-relaxed mt-3">
               Premium destination for authentic factory overruns and limited inventory from our Hong Kong hub.
             </p>
           </div>
@@ -448,8 +449,13 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
             {/* PDP Details Side */}
             <div className="w-full md:w-3/5 p-8 md:p-12 flex flex-col justify-center space-y-4">
               <div className="space-y-2 mt-0 md:mt-8">
-                <div className="flex items-center gap-2 text-[10px] font-bold text-emerald-600 uppercase tracking-widest">
-                  <ClipboardCheck className="w-3 h-3" /> 100% Quality Inspected
+                <div className="flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest">
+                  <div className="flex items-center gap-2 text-emerald-600">
+                    <ClipboardCheck className="w-3 h-3" /> 100% Quality Inspected
+                  </div>
+                  <span className="text-[9px] text-slate-300 tracking-[0.14em]">
+                    ID: {selectedProduct.csvId || selectedProduct.id}
+                  </span>
                 </div>
                 <h3 className="serif text-2xl md:text-3xl font-bold leading-snug break-words">
                   {selectedProduct.name}
@@ -586,6 +592,7 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
                     <span className="text-[10px] font-bold uppercase tracking-wider">Secured Stock</span>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>

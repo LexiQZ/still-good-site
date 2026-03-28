@@ -68,6 +68,14 @@ function resolveImageFilename(raw) {
   return candidate;
 }
 
+/** Skip products whose image file is not in public/images (they reappear after the file is added). */
+function productImageFileExists(p) {
+  if (!p.img || !p.img.startsWith('/images/')) return false;
+  const rel = p.img.slice('/images/'.length);
+  if (!rel) return false;
+  return fs.existsSync(path.join(IMAGES_DIR, rel));
+}
+
 function toId(style, color) {
   const s = normalize(style);
   const c = normalize(color).replace(/\s+/g, '_');
@@ -165,6 +173,7 @@ function humanizeColor(raw) {
 }
 
 function buildProduct(row) {
+  const csvId = normalize(row.ID);
   const style = normalize(row.STYLE);
   const color = humanizeColor(row.COLOR);
   const description = humanizeDescription(row.DESCRIPTION);
@@ -184,6 +193,7 @@ function buildProduct(row) {
     : `${style} ${color}`.trim();
 
   return {
+    csvId,
     id: toId(row.STYLE, row.COLOR),
     name,
     price,
@@ -215,7 +225,7 @@ async function run() {
   const products = records
     .filter((row) => normalize(row.IMAGE) || normalize(row.STYLE))
     .map(buildProduct)
-    .filter((p) => p.id && p.img);
+    .filter((p) => p.id && productImageFileExists(p));
 
   fs.mkdirSync(path.dirname(JSON_PATH), { recursive: true });
   fs.writeFileSync(JSON_PATH, JSON.stringify(products, null, 2), 'utf8');
