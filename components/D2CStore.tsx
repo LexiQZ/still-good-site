@@ -53,7 +53,7 @@ const getProcessedImg = (url: string) => {
 };
 
 /** Sidebar order: audience + garment type (mapped from English tags in CSV `categories`). */
-const SHOP_NAV_ORDER = ['All Archive', 'Ladies', 'Unisex', 'Tops', 'Bottoms', 'Accessories'] as const;
+const SHOP_NAV_ORDER = ['Shop All', 'Ladies', 'Unisex', 'Tops', 'Bottoms', 'Accessories'] as const;
 
 const TOP_TYPE_TAGS = new Set([
   'jacket',
@@ -108,7 +108,7 @@ function productTagSet(p: Product): Set<string> {
 }
 
 function productMatchesShopCategory(p: Product, navKey: string): boolean {
-  if (navKey === 'All Archive') return true;
+  if (navKey === 'Shop All') return true;
   const tags = productTagSet(p);
   const tagList = [...tags];
   const hasBottom = tagList.some((t) => BOTTOM_TYPE_TAGS.has(t));
@@ -193,7 +193,7 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
       selected: boolean;
     }[]
   >([]);
-  const [activeCategory, setActiveCategory] = useState('All Archive');
+  const [activeCategory, setActiveCategory] = useState('Shop All');
   const [products, setProducts] = useState<Product[]>([]);
   const [productsLoading, setProductsLoading] = useState(true);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
@@ -205,8 +205,27 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
   const searchCloseTimerRef = useRef<number | null>(null);
   const cartCloseTimerRef = useRef<number | null>(null);
+  const productGridAnchorRef = useRef<HTMLDivElement>(null);
 
   const CART_DRAWER_MS = 300;
+
+  const scrollToProductGrid = useCallback(() => {
+    const run = () => {
+      const el = productGridAnchorRef.current;
+      if (!el) return;
+      const reduce =
+        typeof window !== 'undefined' &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    };
+    if (typeof window === 'undefined') return;
+    const narrow = window.matchMedia('(max-width: 1023px)').matches;
+    if (narrow) {
+      window.setTimeout(run, 320);
+    } else {
+      window.requestAnimationFrame(run);
+    }
+  }, []);
 
   const closeCartAnimated = useCallback(() => {
     const w = typeof window !== 'undefined' ? window : null;
@@ -269,7 +288,7 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
   const hasMoreProducts = filteredProducts.length > visibleCount;
 
   const categories = SHOP_NAV_ORDER.filter(
-    (key) => key === 'All Archive' || products.some((p) => productMatchesShopCategory(p, key))
+    (key) => key === 'Shop All' || products.some((p) => productMatchesShopCategory(p, key))
   );
 
   const parsePrice = (price: string): number => {
@@ -366,7 +385,7 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
     <>
       <div className="space-y-2 lg:space-y-6">
         <div className="hidden lg:flex items-center justify-between border-b border-slate-900 pb-3">
-          <h4 className="text-[11px] font-bold uppercase tracking-widest text-slate-900">Archive Categories</h4>
+          <h4 className="text-[11px] font-bold uppercase tracking-widest text-slate-900">Categories</h4>
           <Filter className="w-3 h-3" />
         </div>
         <div className="flex flex-col gap-1">
@@ -377,6 +396,7 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
               onClick={() => {
                 setActiveCategory(cat);
                 setMobileFiltersOpen(false);
+                scrollToProductGrid();
               }}
               className={`text-left text-[11px] py-2.5 px-1 rounded-sm transition-all ${activeCategory === cat ? 'text-black font-bold pl-2 border-l-2 border-black bg-slate-50/80' : 'text-slate-400 hover:text-black hover:bg-slate-50'}`}
             >
@@ -484,7 +504,7 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
 
                     <div className="flex flex-wrap gap-2">
                       {categories
-                        .filter((c) => c !== 'All Archive')
+                        .filter((c) => c !== 'Shop All')
                         .slice(0, 8)
                         .map((c) => (
                           <button
@@ -575,9 +595,12 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
         </section>
 
         {/* Filters & Grid */}
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-12 pt-5 pb-8 md:pt-10 md:pb-20">
+        <div
+          ref={productGridAnchorRef}
+          className="max-w-screen-2xl mx-auto px-6 md:px-12 pt-5 pb-8 md:pt-10 md:pb-20 scroll-mt-14 md:scroll-mt-16"
+        >
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
-            <aside className="hidden lg:block w-full lg:w-64 space-y-6 lg:space-y-12 shrink-0">
+            <aside className="hidden lg:block w-full lg:w-64 shrink-0 space-y-6 lg:space-y-12 lg:sticky lg:top-16 lg:self-start lg:max-h-[calc(100vh-4rem)] lg:overflow-y-auto lg:overflow-x-hidden lg:pb-2">
               {categoryNavInner}
             </aside>
 
