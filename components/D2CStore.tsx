@@ -258,7 +258,6 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
       p.name,
       p.style,
       p.color,
-      p.units,
       p.category,
       ...(p.categories || []),
     ]
@@ -393,7 +392,7 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
         </div>
         <p className="text-[10px] text-slate-500 leading-relaxed font-medium uppercase">Hong Kong Hub</p>
         <div className="h-px bg-slate-200" />
-        <p className="text-[10px] text-slate-400 italic">Liquidating limited stock (3-4 pieces per style) with global logistics support.</p>
+        <p className="text-[10px] text-slate-400 italic">Limited quantities per style, with global logistics support.</p>
       </div>
     </>
   );
@@ -402,7 +401,7 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
     <div className="min-h-screen bg-white text-slate-900 selection:bg-black selection:text-white antialiased font-sans">
       {/* Header */}
       <header className="fixed top-0 w-full bg-white/90 backdrop-blur-md z-[100] border-b border-slate-100">
-        <div className="max-w-screen-2xl mx-auto h-16 md:h-20 px-6 lg:px-12 flex items-center justify-between">
+        <div className="max-w-screen-2xl mx-auto h-14 md:h-16 px-6 lg:px-12 flex items-center justify-between">
           <div className="flex-1 flex items-center">
             <button
               type="button"
@@ -415,8 +414,7 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
             </button>
           </div>
           <div className="flex flex-col items-center">
-            <h1 className="serif text-xl md:text-2xl font-bold tracking-tight leading-none text-black">STILL GOOD</h1>
-            <span className="text-[7px] font-bold uppercase tracking-[0.3em] text-slate-400 mt-1">Archive Curator</span>
+            <h1 className="serif text-lg md:text-xl font-bold tracking-tight leading-none text-black">STILL GOOD</h1>
           </div>
           <div className="flex-1 flex items-center justify-end gap-4">
             <div className="hidden sm:flex items-center gap-2">
@@ -553,7 +551,7 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
         </div>
       )}
 
-      <main className="pt-20">
+      <main className="pt-14 md:pt-16">
         {/* Hero Section */}
         <section className="bg-gradient-to-b from-stone-50 via-white to-slate-50/80 pt-8 pb-6 md:pt-12 md:pb-12 px-6 md:px-12 border-b border-slate-100">
           <div className="max-w-screen-2xl mx-auto flex flex-col items-center text-center">
@@ -678,34 +676,24 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
                 </div>
               </div>
 
-              {/* Condition Report Section - Inspired by Vestiaire */}
+              {/* Details: origin + QC (all pieces are new — no redundant “condition” row) */}
               <div className="space-y-4">
                 <div className="bg-slate-50 p-5 border border-slate-100 space-y-3">
-                  <div className="flex items-center justify-between">
-                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-slate-900">Archive Report</h4>
-                    <span className="text-[9px] font-bold text-emerald-600 uppercase tracking-wider">Never Worn</span>
+                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-slate-900">Details</h4>
+                  <div className="flex justify-between items-center border-b border-slate-200 pb-1 max-w-sm">
+                    <span className="text-[9px] text-slate-400 font-bold uppercase">Ships from</span>
+                    <span className="text-[9px] text-slate-900 font-bold">Hong Kong Hub</span>
                   </div>
-                  <div className="grid grid-cols-2 gap-x-6 gap-y-2">
-                    <div className="flex justify-between items-center border-b border-slate-200 pb-1">
-                      <span className="text-[9px] text-slate-400 font-bold uppercase">Condition</span>
-                      <span className="text-[9px] text-slate-900 font-bold">Pristine</span>
-                    </div>
-                    <div className="flex justify-between items-center border-b border-slate-200 pb-1">
-                      <span className="text-[9px] text-slate-400 font-bold uppercase">Origin</span>
-                      <span className="text-[9px] text-slate-900 font-bold">HK Hub</span>
-                    </div>
-                  </div>
-                  <p className="text-[11px] text-slate-500 leading-relaxed italic">
-                    "This item is a factory overrun from our main collection. Fully authenticated by the STILL GOOD Archive team."
+                  <p className="text-[11px] text-slate-500 leading-relaxed">
+                    Quality-inspected before dispatch. Every item is new and handled by the STILL GOOD team.
                   </p>
                 </div>
               </div>
 
               <div className="space-y-5">
                 <div className="flex flex-col gap-2">
-                   <div className="flex items-center justify-between text-[10px] font-black uppercase tracking-widest mb-0.5">
+                   <div className="text-[10px] font-black uppercase tracking-widest mb-0.5">
                     <span>Available Sizes</span>
-                    <span className="text-red-500">{selectedProduct.units}</span>
                    </div>
                    <div className="flex flex-wrap gap-2">
                      {selectedProduct.availableSizes.length === 0 ? (
@@ -811,10 +799,10 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
         <div className="max-w-screen-2xl mx-auto flex flex-col items-center gap-12">
           <div className="text-center space-y-2">
             <h2 className="serif text-3xl font-bold">STILL GOOD</h2>
-            <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-300">Archive Distribution Center</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-300">Timeless · Stylish · Elegant</p>
           </div>
           <p className="text-[9px] font-bold text-slate-300 uppercase tracking-widest text-center max-w-sm leading-relaxed">
-            Quality-inspected surplus from trusted production. Carefully chosen for fabric and finish — made to wear.
+            Quality-inspected pieces, chosen for fabric and finish — made to wear.
           </p>
 
           <div className="w-full max-w-lg pt-10 mt-2 border-t border-slate-100 flex flex-col items-center gap-3 text-center">
