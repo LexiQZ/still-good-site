@@ -600,7 +600,7 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
           className="max-w-screen-2xl mx-auto px-6 md:px-12 pt-5 pb-8 md:pt-10 md:pb-20 scroll-mt-14 md:scroll-mt-16"
         >
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
-            <aside className="hidden lg:block w-full lg:w-64 shrink-0 space-y-6 lg:space-y-12 lg:sticky lg:top-16 lg:self-start lg:max-h-[calc(100vh-4rem)] lg:overflow-y-auto lg:overflow-x-hidden lg:pb-2">
+            <aside className="hidden lg:block w-full lg:w-64 shrink-0 space-y-6 lg:space-y-12 lg:sticky lg:top-20 lg:self-start lg:max-h-[calc(100vh-5rem)] lg:overflow-y-auto lg:overflow-x-hidden lg:pb-2">
               {categoryNavInner}
             </aside>
 
