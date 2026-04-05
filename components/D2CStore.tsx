@@ -161,7 +161,7 @@ const ArchiveImage = ({ src, alt, className }: { src: string; alt: string; class
         src={imgSrc} 
         alt={alt} 
         style={productImgBottomClipStyle}
-        className={`block w-full h-full object-cover object-center border-0 outline-none transition-all duration-1000 ${status === 'success' ? 'opacity-100' : 'opacity-0'}`}
+        className={`block h-full w-full origin-center object-cover object-center border-0 outline-none transition-[transform,opacity] duration-700 ease-out group-hover:scale-105 ${status === 'success' ? 'opacity-100' : 'opacity-0'}`}
         onLoad={() => setStatus('success')}
         onError={() => {
           if (src.startsWith('data:image')) {
@@ -632,11 +632,13 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
                       <ArchiveImage 
                         src={p.img} 
                         alt={p.name} 
-                        className="w-full h-full transition-opacity duration-300 group-hover:opacity-90" 
+                        className="h-full w-full" 
                       />
                     </div>
-                    <div className="space-y-1 text-center">
-                      <h4 className="font-bold text-sm tracking-tight group-hover:underline decoration-[0.5px] underline-offset-4">{p.name}</h4>
+                    <div className="space-y-1 text-center max-sm:max-w-[min(100%,22rem)] max-sm:mx-auto">
+                      <h4 className="font-bold text-sm tracking-tight group-hover:underline decoration-[0.5px] underline-offset-4 max-sm:break-words max-sm:leading-snug max-sm:[overflow-wrap:anywhere]">
+                        {p.name}
+                      </h4>
                           <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400">{p.color}</p>
                       <p className="serif italic text-base text-slate-600">{p.price}</p>
                     </div>
