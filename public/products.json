@@ -110,6 +110,28 @@
     "status": "Active"
   },
   {
+    "csvId": "13",
+    "id": "13-AS151000-GREYMELANGE+OLDROSE",
+    "name": "LADIES 100 COTTON SINGED JERSEY DIP ED DYED TOP",
+    "price": "$193",
+    "units": "Only 1 Unit Left (Size S)",
+    "category": "Ladies",
+    "categories": [
+      "Ladies",
+      "Top",
+      "Outerwear",
+      "Knitwear"
+    ],
+    "style": "AS151000",
+    "color": "GREY MELANGE + OLD ROSE",
+    "description": "LADIES 100 COTTON SINGED JERSEY DIP ED DYED TOP",
+    "img": "/images/13AS151000_GREYMELANGE+OLDROSE",
+    "availableSizes": [
+      "S"
+    ],
+    "status": "Active"
+  },
+  {
     "csvId": "14",
     "id": "14-MS141064-LIGHTGREY",
     "name": "LADIES 100 COTTON SINGED JERSEY DIP DYED JACKET",
@@ -126,6 +148,28 @@
     "color": "LIGHT GREY",
     "description": "LADIES 100 COTTON SINGED JERSEY DIP DYED JACKET",
     "img": "/images/MS141064.jpg",
+    "availableSizes": [
+      "S"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "15",
+    "id": "15-MS14-1072-SORBET",
+    "name": "LADIES 100 COTTON SINGED JERSEY DIP DYED JACKET",
+    "price": "$195",
+    "units": "2 Units Remaining",
+    "category": "Ladies",
+    "categories": [
+      "Ladies",
+      "Jacket",
+      "Outerwear",
+      "Knitwear"
+    ],
+    "style": "MS14-1072",
+    "color": "SORBET",
+    "description": "LADIES 100 COTTON SINGED JERSEY DIP DYED JACKET",
+    "img": "/images/15MS14-1072_SORBET",
     "availableSizes": [
       "S"
     ],
@@ -258,6 +302,28 @@
     "color": "PINE",
     "description": "LADIES 100 COTTON SINGED JERSEY DIP DYED V EST",
     "img": "/images/20MS14-1063_PINE.png",
+    "availableSizes": [
+      "S"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "21",
+    "id": "21-MS14-1069-LIGHTGREY",
+    "name": "LADIES 100 COTTON SINGED JERSEY DIP DYED PANTS",
+    "price": "$165",
+    "units": "2 Units Remaining",
+    "category": "Ladies",
+    "categories": [
+      "Ladies",
+      "Pants",
+      "Bottoms",
+      "Knitwear"
+    ],
+    "style": "MS14-1069",
+    "color": "LIGHT GREY",
+    "description": "LADIES 100 COTTON SINGED JERSEY DIP DYED PANTS",
+    "img": "/images/21MS14-1069_LIGHTGREY",
     "availableSizes": [
       "S"
     ],
@@ -699,6 +765,365 @@
     "img": "/images/41MS14-1060_PINE.png",
     "availableSizes": [
       "S"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "42",
+    "id": "42-NA-1-GREEN",
+    "name": "LADIES VEST",
+    "price": "$210",
+    "units": "Only 1 Unit Left (Size S)",
+    "category": "Ladies",
+    "categories": [
+      "Ladies",
+      "Vest",
+      "Outerwear"
+    ],
+    "style": "NA-1",
+    "color": "GREEN",
+    "description": "LADIES VEST",
+    "img": "/images/42NA-1_GREEN.png",
+    "availableSizes": [
+      "S"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "43",
+    "id": "43-NA-2-PINK",
+    "name": "LADIES DRAPE TOP",
+    "price": "$155",
+    "units": "Only 1 Unit Left (Size S)",
+    "category": "Ladies",
+    "categories": [
+      "Ladies",
+      "Top",
+      "Drape"
+    ],
+    "style": "NA-2",
+    "color": "PINK",
+    "description": "LADIES DRAPE TOP",
+    "img": "/images/43NA-2_PINK.png",
+    "availableSizes": [
+      "S"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "44",
+    "id": "44-NA-3-PURPLE",
+    "name": "LADIES RUFFLE-FLY NECK TANK TOP",
+    "price": "$155",
+    "units": "Only 1 Unit Left (Size S)",
+    "category": "Ladies",
+    "categories": [
+      "Ladies",
+      "Tank Top",
+      "Ruffle"
+    ],
+    "style": "NA-3",
+    "color": "PURPLE",
+    "description": "LADIES RUFFLE-FLY NECK TANK TOP",
+    "img": "/images/44NA-3_PURPLE.png",
+    "availableSizes": [
+      "S"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "45",
+    "id": "45-W01319-J44P0-B425-N-PINK",
+    "name": "LADIES TOP",
+    "price": "$165",
+    "units": "Only 1 Unit Left (Size S)",
+    "category": "Ladies",
+    "categories": [
+      "Ladies",
+      "Top"
+    ],
+    "style": "W01319-J44P0-B425-N",
+    "color": "PINK",
+    "description": "LADIES TOP",
+    "img": "/images/45W01319-J44P0-B425-N_PINK.png",
+    "availableSizes": [
+      "S"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "46",
+    "id": "46-NA-4-BLUE",
+    "name": "LADIES TOP",
+    "price": "$180",
+    "units": "Only 1 Unit Left (Size S)",
+    "category": "Ladies",
+    "categories": [
+      "Ladies",
+      "Top"
+    ],
+    "style": "NA-4",
+    "color": "BLUE",
+    "description": "LADIES TOP",
+    "img": "/images/46NA-4_BLUE.png",
+    "availableSizes": [
+      "S"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "47",
+    "id": "47-W31I45K21W0-BLUE",
+    "name": "LADIES TOP",
+    "price": "$240",
+    "units": "Only 1 Unit Left (Size S)",
+    "category": "Ladies",
+    "categories": [
+      "Ladies",
+      "Top"
+    ],
+    "style": "W31I45K21W0",
+    "color": "BLUE",
+    "description": "LADIES TOP",
+    "img": "/images/47W31I45K21W0_BLUE.png",
+    "availableSizes": [
+      "S"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "48",
+    "id": "48-N01342-I3LI0-NAVY",
+    "name": "BOY POLO",
+    "price": "$270",
+    "units": "Only 1 Unit Left (Size S)",
+    "category": "Kid",
+    "categories": [
+      "Kid",
+      "Boys",
+      "Polo"
+    ],
+    "style": "N01342-I3LI0",
+    "color": "NAVY",
+    "description": "BOY POLO",
+    "img": "/images/48N01342-I3LI0_NAVY.png",
+    "availableSizes": [
+      "S"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "49",
+    "id": "49-K01530-I3MQ0-B436-N-PINK",
+    "name": "GIRL JACKET",
+    "price": "$160",
+    "units": "Only 1 Unit Left (Size S)",
+    "category": "Kid",
+    "categories": [
+      "Kid",
+      "Girls",
+      "Jacket"
+    ],
+    "style": "K01530-I3MQ0-B436-N",
+    "color": "PINK",
+    "description": "GIRL JACKET",
+    "img": "/images/49K01530-I3MQ0-B436-N_PINK.png",
+    "availableSizes": [
+      "S"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "50",
+    "id": "50-N01341-I3LI0-BLUE",
+    "name": "BOY POLO",
+    "price": "$240",
+    "units": "Only 1 Unit Left (Size M)",
+    "category": "Kid",
+    "categories": [
+      "Kid",
+      "Boys",
+      "Polo"
+    ],
+    "style": "N01341-I3LI0",
+    "color": "BLUE",
+    "description": "BOY POLO",
+    "img": "/images/50N01341-I3LI0_BLUE.png",
+    "availableSizes": [
+      "M"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "51",
+    "id": "51-NA-5-GREY",
+    "name": "BOY POLO",
+    "price": "$130",
+    "units": "Only 1 Unit Left (Size L)",
+    "category": "Kid",
+    "categories": [
+      "Kid",
+      "Boys",
+      "Polo"
+    ],
+    "style": "NA-5",
+    "color": "GREY",
+    "description": "BOY POLO",
+    "img": "/images/51NA-5_GREY.png",
+    "availableSizes": [
+      "L"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "52",
+    "id": "52-J01351-I3QI0-001-N-WHITE",
+    "name": "GIRL TEE",
+    "price": "$270",
+    "units": "Only 1 Unit Left (Size S)",
+    "category": "Kid",
+    "categories": [
+      "Kid",
+      "Girls",
+      "T-Shirt"
+    ],
+    "style": "J01351-I3QI0-001-N",
+    "color": "WHITE",
+    "description": "GIRL TEE",
+    "img": "/images/52J01351-I3QI0-001-N_WHITE.png",
+    "availableSizes": [
+      "S"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "53",
+    "id": "53-J01355-I3QI0-B713-N-BLACK",
+    "name": "GIRL TEE",
+    "price": "$175",
+    "units": "Only 1 Unit Left (Size M)",
+    "category": "Kid",
+    "categories": [
+      "Kid",
+      "Girls",
+      "T-Shirt"
+    ],
+    "style": "J01355-I3QI0-B713-N",
+    "color": "BLACK",
+    "description": "GIRL TEE",
+    "img": "/images/53J01355-I3QI0-B713-N_BLACK.png",
+    "availableSizes": [
+      "M"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "54",
+    "id": "54-J01356-I3QI0-C457-N-PURPLE",
+    "name": "GIRL SKIRT",
+    "price": "$225",
+    "units": "Only 1 Unit Left (Size L)",
+    "category": "Kid",
+    "categories": [
+      "Kid",
+      "Girls",
+      "Skirt",
+      "Bottoms"
+    ],
+    "style": "J01356-I3QI0-C457-N",
+    "color": "PURPLE",
+    "description": "GIRL SKIRT",
+    "img": "/images/54J01356-I3QI0-C457-N_PURPLE.png",
+    "availableSizes": [
+      "L"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "54_5",
+    "id": "54_5-L01538I3MQ0-001-N-WHITE",
+    "name": "GIRL JACKET",
+    "price": "$205",
+    "units": "Only 1 Unit Left (Size S)",
+    "category": "Kid",
+    "categories": [
+      "Kid",
+      "Girls",
+      "Jacket",
+      "Outerwear"
+    ],
+    "style": "L01538I3MQ0-001-N",
+    "color": "WHITE",
+    "description": "GIRL JACKET",
+    "img": "/images/54_5L01538I3MQ0-001-N_WHITE.png",
+    "availableSizes": [
+      "S"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "55",
+    "id": "55-NA-6-BLACK",
+    "name": "BOY JACKET",
+    "price": "$275",
+    "units": "Only 1 Unit Left (Size M)",
+    "category": "Kid",
+    "categories": [
+      "Kid",
+      "Boys",
+      "Jacket",
+      "Outerwear"
+    ],
+    "style": "NA-6",
+    "color": "BLACK",
+    "description": "BOY JACKET",
+    "img": "/images/55NA-6_BLACK.png",
+    "availableSizes": [
+      "M"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "56",
+    "id": "56-L04532-I3MQ0-B446-N-PURPLE",
+    "name": "BOY JACKET",
+    "price": "$260",
+    "units": "Only 1 Unit Left (Size M)",
+    "category": "Kid",
+    "categories": [
+      "Kid",
+      "Boys",
+      "Jacket",
+      "Outerwear"
+    ],
+    "style": "L04532-I3MQ0-B446-N",
+    "color": "PURPLE",
+    "description": "BOY JACKET",
+    "img": "/images/56L04532-I3MQ0-B446-N_PURPLE.png",
+    "availableSizes": [
+      "M"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "57",
+    "id": "57-L04534-I9AQ0-B446-N-PURPLE",
+    "name": "BOY JACKET",
+    "price": "$195",
+    "units": "Only 1 Unit Left (Size M)",
+    "category": "Kid",
+    "categories": [
+      "Kid",
+      "Boys",
+      "Jacket",
+      "Outerwear"
+    ],
+    "style": "L04534-I9AQ0-B446-N",
+    "color": "PURPLE",
+    "description": "BOY JACKET",
+    "img": "/images/57L04534-I9AQ0-B446-N_PURPLE.png",
+    "availableSizes": [
+      "M"
     ],
     "status": "Active"
   }

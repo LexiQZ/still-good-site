@@ -41,6 +41,9 @@ interface D2CStoreProps {
 /**
  * Robust image processing for Google Drive and external links
  */
+/** Trim a thin strip off the bottom of product photos (hides harsh edge above gray padding). */
+const productImgBottomClipStyle = { clipPath: 'inset(0 0 1.75% 0)' } as const;
+
 const getProcessedImg = (url: string) => {
   if (!url) return '';
   if (url.startsWith('data:image') || url.startsWith('/')) return url;
@@ -53,7 +56,7 @@ const getProcessedImg = (url: string) => {
 };
 
 /** Sidebar order: audience + garment type (mapped from English tags in CSV `categories`). */
-const SHOP_NAV_ORDER = ['Shop All', 'Ladies', 'Unisex', 'Tops', 'Bottoms', 'Accessories'] as const;
+const SHOP_NAV_ORDER = ['Shop All', 'Ladies', 'Kid', 'Tops', 'Bottoms', 'Accessories'] as const;
 
 const TOP_TYPE_TAGS = new Set([
   'jacket',
@@ -118,8 +121,8 @@ function productMatchesShopCategory(p: Product, navKey: string): boolean {
   switch (navKey) {
     case 'Ladies':
       return tags.has('ladies');
-    case 'Unisex':
-      return tags.has('unisex');
+    case 'Kid':
+      return tags.has('kid') || tags.has('kids');
     case 'Bottoms':
       return hasBottom;
     case 'Accessories':
@@ -137,21 +140,28 @@ const ArchiveImage = ({ src, alt, className }: { src: string; alt: string; class
   const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
 
   useEffect(() => {
+    const trimmed = (src || '').trim();
+    if (!trimmed) {
+      setStatus('success');
+      setImgSrc('https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&q=80&w=800');
+      return;
+    }
     setStatus('loading');
-    setImgSrc(getProcessedImg(src));
+    setImgSrc(getProcessedImg(trimmed));
   }, [src]);
 
   return (
-    <div className={`relative bg-[#F9F9F9] overflow-hidden ${className}`}>
+    <div className={`relative bg-white overflow-hidden ${className}`}>
       {status === 'loading' && (
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center bg-slate-50">
           <Loader2 className="w-5 h-5 animate-spin text-slate-200" />
         </div>
       )}
       <img 
         src={imgSrc} 
         alt={alt} 
-        className={`w-full h-full object-cover scale-[1.02] transition-all duration-1000 ${status === 'success' ? 'opacity-100' : 'opacity-0'}`}
+        style={productImgBottomClipStyle}
+        className={`block w-full h-full object-cover object-center border-0 outline-none transition-all duration-1000 ${status === 'success' ? 'opacity-100' : 'opacity-0'}`}
         onLoad={() => setStatus('success')}
         onError={() => {
           if (src.startsWith('data:image')) {
@@ -618,11 +628,11 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
                         className="group cursor-pointer space-y-4"
                     onClick={() => setSelectedProduct(p)}
                   >
-                        <div className="aspect-[3/4] max-w-[220px] md:max-w-[240px] mx-auto overflow-hidden relative border border-slate-100 bg-white px-3 py-2 md:px-4 md:py-3">
+                        <div className="aspect-[3/4] max-w-[220px] md:max-w-[240px] mx-auto overflow-hidden relative bg-white">
                       <ArchiveImage 
                         src={p.img} 
                         alt={p.name} 
-                        className="w-full h-full transition-transform duration-1000 group-hover:scale-105" 
+                        className="w-full h-full transition-opacity duration-300 group-hover:opacity-90" 
                       />
                     </div>
                     <div className="space-y-1 text-center">
@@ -669,7 +679,7 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
 
             {/* PDP Image Side */}
             <div className="w-full md:w-2/5 bg-[#F9F9F9] p-8 md:p-12 flex items-center justify-center">
-              <div className="w-full max-w-xs md:max-w-sm aspect-[3/4] border border-slate-100 bg-white">
+              <div className="w-full max-w-xs md:max-w-sm aspect-[3/4] bg-white overflow-hidden">
                 <ArchiveImage src={selectedProduct.img} alt={selectedProduct.name} className="w-full h-full" />
               </div>
             </div>
@@ -887,11 +897,12 @@ export const D2CStore: React.FC<D2CStoreProps> = () => {
                       {item.selected && <div className="w-2 h-2 rounded-full bg-black" />}
                     </button>
 
-                    <div className="w-16 h-20 border border-slate-100 bg-slate-50 overflow-hidden">
+                    <div className="w-16 h-20 bg-white overflow-hidden">
                       <img
                         src={item.img}
                         alt={item.name}
-                        className="w-full h-full object-cover"
+                        style={productImgBottomClipStyle}
+                        className="block w-full h-full object-cover object-center border-0 outline-none"
                       />
                     </div>
                     <div className="flex-1 text-xs space-y-1">
