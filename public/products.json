@@ -1126,5 +1126,137 @@
       "M"
     ],
     "status": "Active"
+  },
+  {
+    "csvId": "1",
+    "id": "1-NA-7",
+    "name": "Jogger - 100 modal",
+    "price": "$200",
+    "units": "Only 1 Unit Left (Size S)",
+    "category": "Bottoms",
+    "categories": [
+      "Bottoms"
+    ],
+    "style": "NA-7",
+    "color": "",
+    "description": "Jogger - 100 modal",
+    "img": "/images/1NA-7.png",
+    "availableSizes": [
+      "S"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "2",
+    "id": "2-NA-8",
+    "name": "shorts -100 modal",
+    "price": "$215",
+    "units": "Only 1 Unit Left (Size S)",
+    "category": "Bottoms",
+    "categories": [
+      "Bottoms"
+    ],
+    "style": "NA-8",
+    "color": "",
+    "description": "shorts -100 modal",
+    "img": "/images/2NA-8.png",
+    "availableSizes": [
+      "S"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "3",
+    "id": "3-NA-9",
+    "name": "v-neck top - 100 modal",
+    "price": "$235",
+    "units": "Only 1 Unit Left (Size S)",
+    "category": "Top",
+    "categories": [
+      "Top"
+    ],
+    "style": "NA-9",
+    "color": "",
+    "description": "v-neck top - 100 modal",
+    "img": "/images/3NA-9.png",
+    "availableSizes": [
+      "S"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "4",
+    "id": "4-NA-10",
+    "name": "full zip hoody - 100 modal",
+    "price": "$275",
+    "units": "Only 1 Unit Left (Size S)",
+    "category": "Top",
+    "categories": [
+      "Top",
+      "Hoody"
+    ],
+    "style": "NA-10",
+    "color": "",
+    "description": "full zip hoody - 100 modal",
+    "img": "/images/4NA-10.png",
+    "availableSizes": [
+      "S"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "5",
+    "id": "5-NA-11",
+    "name": "tank top - two tone - 100 modal",
+    "price": "$130",
+    "units": "Only 1 Unit Left (Size S)",
+    "category": "Top",
+    "categories": [
+      "Top"
+    ],
+    "style": "NA-11",
+    "color": "",
+    "description": "tank top - two tone - 100 modal",
+    "img": "/images/5NA-11.png",
+    "availableSizes": [
+      "S"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "6",
+    "id": "6-NA-12",
+    "name": "tank top - 100 modal",
+    "price": "$145",
+    "units": "Only 1 Unit Left (Size S)",
+    "category": "Top",
+    "categories": [
+      "Top"
+    ],
+    "style": "NA-12",
+    "color": "",
+    "description": "tank top - 100 modal",
+    "img": "/images/6NA-12.png",
+    "availableSizes": [
+      "S"
+    ],
+    "status": "Active"
+  },
+  {
+    "csvId": "7",
+    "id": "7-NA-13",
+    "name": "NA-13",
+    "price": "$125",
+    "units": "Out of stock",
+    "category": "Archive",
+    "categories": [
+      "Archive"
+    ],
+    "style": "NA-13",
+    "color": "",
+    "description": "NA-13 ",
+    "img": "",
+    "availableSizes": [],
+    "status": "Active"
   }
 ]
